@@ -43,13 +43,13 @@ COPY --from=caddybuild /go/src/github.com/mholt/caddy/caddy/caddy /usr/local/bin
 RUN \
   apk --update add \
   # Need for gem install TODO move to docker.build?
-  alpine-sdk icu-dev \
+  alpine-sdk icu-dev cmake \
   # Needed for running gollum
   git \
   # Useful for backup
   rsync openssh \
-  # Install gollum
-  && gem install gollum  \
+  # Install gollum and some plugins
+  && gem install gollum gollum-rugged_adapter github-markdown \
   # cleanup apk cache
   && rm -rf /var/cache/apk/* \
   # Initialize wiki data.
