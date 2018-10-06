@@ -14,6 +14,7 @@ RUN \
     _ \"github.com/BTBurke/caddy-jwt\"  \n\
     // http.login  \n\
     _ \"github.com/tarent/loginsrv/caddy\" \n\
+    _ \"github.com/freman/caddy-reauth\" \n\
   )" > /go/src/github.com/mholt/caddy/caddyhttp/plugins.go \
   && go get -d -v github.com/caddyserver/builds \
   && cd /go/src/github.com/mholt/caddy/caddy \
